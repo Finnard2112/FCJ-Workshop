@@ -1,49 +1,35 @@
-name: Deploy Hugo site to Pages
+name: Deploy Hugo site to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches:
-      - main # Or "master"
+      - main  # Đổi thành 'master' nếu repo bạn dùng branch đó
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write  # Cho phép GitHub Actions push lên gh-pages
 
 jobs:
-  # Build job
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout source code (with submodules)
         uses: actions/checkout@v3
         with:
-          submodules: true
+          submodules: true       # Nếu theme là git submodule
+          fetch-depth: 0         # Đảm bảo clone đầy đủ lịch sử Git
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
-      - name: Build
-        run: hugo --minify
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # This tells the action to upload the built site from the "public" directory
-          path: ./public
+          hugo-version: '0.124.1'  # Hoặc 'latest'
 
-  # Deploy job
-  deploy:
-    needs: build # This job will only run after the build job succeeds
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
+      - name: Build Hugo site
+        run: hugo --minify
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
