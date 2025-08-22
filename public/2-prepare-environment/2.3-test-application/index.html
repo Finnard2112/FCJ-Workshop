@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head><script src="/FCJ-Workshop/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=FCJ-Workshop/livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.148.2">
-    <meta name="description" content="Documentation for the AWS Serverless Security Automation Project">
-<meta name="author" content="finnard2112@gmail.com">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
 
-    <link rel="icon" href="http://localhost:1313/FCJ-Workshop/images/favicon.png" type="image/png">
+    <link rel="icon" href="/FCJ-Workshop/images/favicon.png" type="image/png">
 
-    <title>Testing the Underlying Application :: AWS Security Automation</title>
+    <title>Testing the Underlying Application :: Create a new AWS account.</title>
 
     
-    <link href="http://localhost:1313/FCJ-Workshop/css/nucleus.css?1755892345" rel="stylesheet">
-    <link href="http://localhost:1313/FCJ-Workshop/css/fontawesome-all.min.css?1755892345" rel="stylesheet">
-    <link href="http://localhost:1313/FCJ-Workshop/css/hybrid.css?1755892345" rel="stylesheet">
-    <link href="http://localhost:1313/FCJ-Workshop/css/featherlight.min.css?1755892345" rel="stylesheet">
-    <link href="http://localhost:1313/FCJ-Workshop/css/perfect-scrollbar.min.css?1755892345" rel="stylesheet">
-    <link href="http://localhost:1313/FCJ-Workshop/css/auto-complete.css?1755892345" rel="stylesheet">
-    <link href="http://localhost:1313/FCJ-Workshop/css/atom-one-dark-reasonable.css?1755892345" rel="stylesheet">
-    <link href="http://localhost:1313/FCJ-Workshop/css/theme.css?1755892345" rel="stylesheet">
-    <link href="http://localhost:1313/FCJ-Workshop/css/hugo-theme.css?1755892345" rel="stylesheet">
+    <link href="/FCJ-Workshop/css/nucleus.css?1755892492" rel="stylesheet">
+    <link href="/FCJ-Workshop/css/fontawesome-all.min.css?1755892492" rel="stylesheet">
+    <link href="/FCJ-Workshop/css/hybrid.css?1755892492" rel="stylesheet">
+    <link href="/FCJ-Workshop/css/featherlight.min.css?1755892492" rel="stylesheet">
+    <link href="/FCJ-Workshop/css/perfect-scrollbar.min.css?1755892492" rel="stylesheet">
+    <link href="/FCJ-Workshop/css/auto-complete.css?1755892492" rel="stylesheet">
+    <link href="/FCJ-Workshop/css/atom-one-dark-reasonable.css?1755892492" rel="stylesheet">
+    <link href="/FCJ-Workshop/css/theme.css?1755892492" rel="stylesheet">
+    <link href="/FCJ-Workshop/css/hugo-theme.css?1755892492" rel="stylesheet">
     
-    <link href="http://localhost:1313/FCJ-Workshop/css/theme-workshop.css?1755892345" rel="stylesheet">
+    <link href="/FCJ-Workshop/css/theme-workshop.css?1755892492" rel="stylesheet">
     
     
 
-    <script src="http://localhost:1313/FCJ-Workshop/js/jquery-3.3.1.min.js?1755892345"></script>
+    <script src="/FCJ-Workshop/js/jquery-3.3.1.min.js?1755892492"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -36,14 +36,14 @@
     </style>
     
   </head>
-  <body class="" data-url="http://localhost:1313/FCJ-Workshop/2-prepare-environment/2.3-test-application/">
+  <body class="" data-url="/FCJ-Workshop/2-prepare-environment/2.3-test-application/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
 
   <div id="header-wrapper">
     <div id="header">
-      <a id="logo" href="http://localhost:1313/FCJ-Workshop/">
+      <a id="logo" href="/">
 
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
 
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="http://localhost:1313/FCJ-Workshop/js/lunr.min.js?1755892345"></script>
-<script type="text/javascript" src="http://localhost:1313/FCJ-Workshop/js/auto-complete.js?1755892345"></script>
+<script type="text/javascript" src="/FCJ-Workshop/js/lunr.min.js?1755892492"></script>
+<script type="text/javascript" src="/FCJ-Workshop/js/auto-complete.js?1755892492"></script>
 <script type="text/javascript">
     
-        var baseurl = "http:\/\/localhost:1313\/FCJ-Workshop\/";
+        var baseurl = "https:\/\/finnard2112.github.io\/FCJ-Workshop\/";
     
 </script>
-<script type="text/javascript" src="http://localhost:1313/FCJ-Workshop/js/search.js?1755892345"></script>
+<script type="text/javascript" src="/FCJ-Workshop/js/search.js?1755892492"></script>
 
     
   </div>
@@ -82,12 +82,12 @@
  
   
     
-    <li data-nav-id="/1-introduction/" title="Introduction" class="dd-item 
+    <li data-nav-id="/FCJ-Workshop/1-introduction/" title="Introduction" class="dd-item 
         
         
         
         ">
-      <a href="http://localhost:1313/FCJ-Workshop/1-introduction/">
+      <a href="/FCJ-Workshop/1-introduction/">
            <b> 1. </b> Introduction
           
             <i class="fas fa-check read-icon"></i>
@@ -111,8 +111,8 @@
  
   
     
-      <li data-nav-id="/1-introduction/1.1-project-goals/" title="Project Goals" class="dd-item ">
-        <a href="http://localhost:1313/FCJ-Workshop/1-introduction/1.1-project-goals/">
+      <li data-nav-id="/FCJ-Workshop/1-introduction/1.1-project-goals/" title="Project Goals" class="dd-item ">
+        <a href="/FCJ-Workshop/1-introduction/1.1-project-goals/">
          <b> 1.1 </b> Project Goals
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -132,8 +132,8 @@
  
   
     
-      <li data-nav-id="/1-introduction/1.2-purpose-and-applications/" title="Purpose and Applications" class="dd-item ">
-        <a href="http://localhost:1313/FCJ-Workshop/1-introduction/1.2-purpose-and-applications/">
+      <li data-nav-id="/FCJ-Workshop/1-introduction/1.2-purpose-and-applications/" title="Purpose and Applications" class="dd-item ">
+        <a href="/FCJ-Workshop/1-introduction/1.2-purpose-and-applications/">
          <b> 1.2 </b> Purpose and Applications
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -153,8 +153,8 @@
  
   
     
-      <li data-nav-id="/1-introduction/1.3-in-depth-design/" title="In Depth Design" class="dd-item ">
-        <a href="http://localhost:1313/FCJ-Workshop/1-introduction/1.3-in-depth-design/">
+      <li data-nav-id="/FCJ-Workshop/1-introduction/1.3-in-depth-design/" title="In Depth Design" class="dd-item ">
+        <a href="/FCJ-Workshop/1-introduction/1.3-in-depth-design/">
          <b> 1.3 </b> In Depth Design
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -181,12 +181,12 @@
  
   
     
-    <li data-nav-id="/2-prepare-environment/" title="Prepare the Environment" class="dd-item 
+    <li data-nav-id="/FCJ-Workshop/2-prepare-environment/" title="Prepare the Environment" class="dd-item 
         parent
         
         
         ">
-      <a href="http://localhost:1313/FCJ-Workshop/2-prepare-environment/">
+      <a href="/FCJ-Workshop/2-prepare-environment/">
            <b> 2. </b> Prepare the Environment
           
             <i class="fas fa-check read-icon"></i>
@@ -212,8 +212,8 @@
  
   
     
-      <li data-nav-id="/2-prepare-environment/2.1-deploy-cloudformation/" title="Deploy using CloudFormation" class="dd-item ">
-        <a href="http://localhost:1313/FCJ-Workshop/2-prepare-environment/2.1-deploy-cloudformation/">
+      <li data-nav-id="/FCJ-Workshop/2-prepare-environment/2.1-deploy-cloudformation/" title="Deploy using CloudFormation" class="dd-item ">
+        <a href="/FCJ-Workshop/2-prepare-environment/2.1-deploy-cloudformation/">
          <b> 2.1 </b> Deploy using CloudFormation
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -233,8 +233,8 @@
  
   
     
-      <li data-nav-id="/2-prepare-environment/2.2-configuring-application/" title="Configuring the Serverless Aplication" class="dd-item ">
-        <a href="http://localhost:1313/FCJ-Workshop/2-prepare-environment/2.2-configuring-application/">
+      <li data-nav-id="/FCJ-Workshop/2-prepare-environment/2.2-configuring-application/" title="Configuring the Serverless Aplication" class="dd-item ">
+        <a href="/FCJ-Workshop/2-prepare-environment/2.2-configuring-application/">
          <b> 2.2 </b> Configuring the Serverless Aplication
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -254,12 +254,12 @@
  
   
     
-    <li data-nav-id="/2-prepare-environment/2.3-test-application/" title="Testing the Underlying Application" class="dd-item 
+    <li data-nav-id="/FCJ-Workshop/2-prepare-environment/2.3-test-application/" title="Testing the Underlying Application" class="dd-item 
         
         active
         
         ">
-      <a href="http://localhost:1313/FCJ-Workshop/2-prepare-environment/2.3-test-application/">
+      <a href="/FCJ-Workshop/2-prepare-environment/2.3-test-application/">
            <b> 2.3 </b> Testing the Underlying Application
           
             <i class="fas fa-check read-icon"></i>
@@ -289,12 +289,12 @@
  
   
     
-    <li data-nav-id="/3-security-automation/" title="Configuring the Security Automation" class="dd-item 
+    <li data-nav-id="/FCJ-Workshop/3-security-automation/" title="Configuring the Security Automation" class="dd-item 
         
         
         
         ">
-      <a href="http://localhost:1313/FCJ-Workshop/3-security-automation/">
+      <a href="/FCJ-Workshop/3-security-automation/">
            <b> 3. </b> Configuring the Security Automation
           
             <i class="fas fa-check read-icon"></i>
@@ -318,8 +318,8 @@
  
   
     
-      <li data-nav-id="/3-security-automation/3.1-configure-event-bridge/" title="Configuring EventBridge" class="dd-item ">
-        <a href="http://localhost:1313/FCJ-Workshop/3-security-automation/3.1-configure-event-bridge/">
+      <li data-nav-id="/FCJ-Workshop/3-security-automation/3.1-configure-event-bridge/" title="Configuring EventBridge" class="dd-item ">
+        <a href="/FCJ-Workshop/3-security-automation/3.1-configure-event-bridge/">
          <b> 3.1 </b> Configuring EventBridge
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -339,8 +339,8 @@
  
   
     
-      <li data-nav-id="/3-security-automation/3.2-prepare-test-event/" title="Prepare Test Event" class="dd-item ">
-        <a href="http://localhost:1313/FCJ-Workshop/3-security-automation/3.2-prepare-test-event/">
+      <li data-nav-id="/FCJ-Workshop/3-security-automation/3.2-prepare-test-event/" title="Prepare Test Event" class="dd-item ">
+        <a href="/FCJ-Workshop/3-security-automation/3.2-prepare-test-event/">
          <b> 3.2 </b> Prepare Test Event
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -360,8 +360,8 @@
  
   
     
-      <li data-nav-id="/3-security-automation/3.3-setting-up-automation/" title="Setting up security automation" class="dd-item ">
-        <a href="http://localhost:1313/FCJ-Workshop/3-security-automation/3.3-setting-up-automation/">
+      <li data-nav-id="/FCJ-Workshop/3-security-automation/3.3-setting-up-automation/" title="Setting up security automation" class="dd-item ">
+        <a href="/FCJ-Workshop/3-security-automation/3.3-setting-up-automation/">
          <b> 3.3 </b> Setting up security automation
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -381,8 +381,8 @@
  
   
     
-      <li data-nav-id="/3-security-automation/3.4-testing-security-pipeline/" title="Testing the security pipeline" class="dd-item ">
-        <a href="http://localhost:1313/FCJ-Workshop/3-security-automation/3.4-testing-security-pipeline/">
+      <li data-nav-id="/FCJ-Workshop/3-security-automation/3.4-testing-security-pipeline/" title="Testing the security pipeline" class="dd-item ">
+        <a href="/FCJ-Workshop/3-security-automation/3.4-testing-security-pipeline/">
          <b> 3.4 </b> Testing the security pipeline
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -409,12 +409,12 @@
  
   
     
-    <li data-nav-id="/4-cleanup/" title="Project Cleanup Guide" class="dd-item 
+    <li data-nav-id="/FCJ-Workshop/4-cleanup/" title="Project Cleanup Guide" class="dd-item 
         
         
         
         ">
-      <a href="http://localhost:1313/FCJ-Workshop/4-cleanup/">
+      <a href="/FCJ-Workshop/4-cleanup/">
            <b> 4. </b> Project Cleanup Guide
           
             <i class="fas fa-check read-icon"></i>
@@ -437,7 +437,11 @@
         <ul>
           
               <li> 
-                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+                  <a class="padding" href="https://aws.amazon.com/blogs"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj"><i class='fab fa-facebook'></i> AWS Study Group - FB Group</a>
               </li>
           
         </ul>
@@ -462,7 +466,7 @@
                   
                     
                     
-                      <option id="en" value="http://localhost:1313/FCJ-Workshop/2-prepare-environment/2.3-test-application/" selected>English</option>
+                      <option id="en" value="https://finnard2112.github.io/FCJ-Workshop/2-prepare-environment/2.3-test-application/" selected>English</option>
                     
                   
               
@@ -532,17 +536,6 @@
               <div>
                 <div id="top-bar">
                 
-                  
-                  
-                  
-                  <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/Finnard2112/FCJ-Workshop/edit/main/content/2-prepare-environment/2.3-test-application/_index.md" target="blank">
-                      <i class="fas fa-code-branch"></i>
-                      <span id="top-github-link-text">Edit this page</span>
-                    </a>
-                  </div>
-                  
-                
                 
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -567,7 +560,7 @@
             
           
           
-            <a href='http://localhost:1313/FCJ-Workshop/'>Security Incident Response with Forensics Integration</a> > <a href='http://localhost:1313/FCJ-Workshop/2-prepare-environment/'>Prepare the Environment</a> > Testing the Underlying Application
+            <a href='/FCJ-Workshop/'>Security Incident Response with Forensics Integration</a> > <a href='/FCJ-Workshop/2-prepare-environment/'>Prepare the Environment</a> > Testing the Underlying Application
           
         
           
@@ -648,7 +641,7 @@ REGION = &#34;us-east-1&#34;
 USERNAME = &#34;your-test-user@example.com&#34;
 PASSWORD = &#34;YourStrongPassword!123&#34;
 API_URL = &#34;[https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod/products](https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod/products)&#34;
-</code></pre><p><img src="http://localhost:1313/FCJ-Workshop/images/00/0010.png?featherlight=false&amp;width=90pc" alt="Test File"></p>
+</code></pre><p><img src="/images/00/0010.png?featherlight=false&amp;width=90pc" alt="Test File"></p>
 <h3 id="step-2-running-the-tests">Step 2: Running the Tests</h3>
 <p>The Python script is organized into functions that test different parts of your API. The main execution block at the bottom of the script controls which test is run.</p>
 <h4 id="a-test-authentication-"><strong>A. Test Authentication (<code>get_cognito_tokens</code>)</strong></h4>
@@ -663,7 +656,7 @@ API_URL = &#34;[https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod/prod
 </span></span></code></pre></div></li>
 </ul>
 <p><strong>Expected Output</strong>: You will see a &ldquo;✅ API Call Successful!&rdquo; message and a JSON response containing a list of products (which will be empty initially).\</p>
-<p><img src="http://localhost:1313/FCJ-Workshop/images/00/0011.png?featherlight=false&amp;width=90pc" alt="GetProducts"></p>
+<p><img src="/images/00/0011.png?featherlight=false&amp;width=90pc" alt="GetProducts"></p>
 <hr>
 <h4 id="c-test-creating-a-product-"><strong>C. Test Creating a Product (<code>create_product</code>)</strong></h4>
 <p>This function sends an authorized POST request with a sample product payload to create a new item in your DynamoDB table.</p>
@@ -685,7 +678,7 @@ API_URL = &#34;[https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod/prod
 </ul>
 <p><strong>Expected Output</strong>: A success message and a JSON response confirming the deletion.</p>
 <p>By following these steps, you can thoroughly test the authentication and core CRUD (Create, Read, Update, Delete) functionality of the underlying serverless application.</p>
-<p><img src="http://localhost:1313/FCJ-Workshop/images/00/0012.png?featherlight=false&amp;width=90pc" alt="DeleteProduct"></p>
+<p><img src="/images/00/0012.png?featherlight=false&amp;width=90pc" alt="DeleteProduct"></p>
 
 
 
@@ -967,10 +960,10 @@ API_URL = &#34;[https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod/prod
 	 
 	 
 		
-			<a class="nav nav-prev" href="http://localhost:1313/FCJ-Workshop/2-prepare-environment/2.2-configuring-application/" title="Configuring the Serverless Aplication"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/FCJ-Workshop/2-prepare-environment/2.2-configuring-application/" title="Configuring the Serverless Aplication"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="http://localhost:1313/FCJ-Workshop/3-security-automation/" title="Configuring the Security Automation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/FCJ-Workshop/3-security-automation/" title="Configuring the Security Automation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -980,19 +973,19 @@ API_URL = &#34;[https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod/prod
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="http://localhost:1313/FCJ-Workshop/js/clipboard.min.js?1755892345"></script>
-    <script src="http://localhost:1313/FCJ-Workshop/js/perfect-scrollbar.min.js?1755892345"></script>
-    <script src="http://localhost:1313/FCJ-Workshop/js/perfect-scrollbar.jquery.min.js?1755892345"></script>
-    <script src="http://localhost:1313/FCJ-Workshop/js/jquery.sticky.js?1755892345"></script>
-    <script src="http://localhost:1313/FCJ-Workshop/js/featherlight.min.js?1755892345"></script>
-    <script src="http://localhost:1313/FCJ-Workshop/js/highlight.pack.js?1755892345"></script>
+    <script src="/FCJ-Workshop/js/clipboard.min.js?1755892492"></script>
+    <script src="/FCJ-Workshop/js/perfect-scrollbar.min.js?1755892492"></script>
+    <script src="/FCJ-Workshop/js/perfect-scrollbar.jquery.min.js?1755892492"></script>
+    <script src="/FCJ-Workshop/js/jquery.sticky.js?1755892492"></script>
+    <script src="/FCJ-Workshop/js/featherlight.min.js?1755892492"></script>
+    <script src="/FCJ-Workshop/js/highlight.pack.js?1755892492"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://localhost:1313/FCJ-Workshop/js/modernizr.custom-3.6.0.js?1755892345"></script>
-    <script src="http://localhost:1313/FCJ-Workshop/js/learn.js?1755892345"></script>
-    <script src="http://localhost:1313/FCJ-Workshop/js/hugo-learn.js?1755892345"></script>
+    <script src="/FCJ-Workshop/js/modernizr.custom-3.6.0.js?1755892492"></script>
+    <script src="/FCJ-Workshop/js/learn.js?1755892492"></script>
+    <script src="/FCJ-Workshop/js/hugo-learn.js?1755892492"></script>
 
-    <link href="http://localhost:1313/FCJ-Workshop/mermaid/mermaid.css?1755892345" rel="stylesheet" />
-    <script src="http://localhost:1313/FCJ-Workshop/mermaid/mermaid.js?1755892345"></script>
+    <link href="/FCJ-Workshop/mermaid/mermaid.css?1755892492" rel="stylesheet" />
+    <script src="/FCJ-Workshop/mermaid/mermaid.js?1755892492"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

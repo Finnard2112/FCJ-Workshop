@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on AWS Security Automation</title>
-    <link>http://localhost:1313/FCJ-Workshop/tags/</link>
-    <description>Recent content in Tags on AWS Security Automation</description>
+    <title>Tags on Create a new AWS account.</title>
+    <link>https://finnard2112.github.io/FCJ-Workshop/tags/</link>
+    <description>Recent content in Tags on Create a new AWS account.</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/FCJ-Workshop/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://finnard2112.github.io/FCJ-Workshop/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
