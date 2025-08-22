@@ -1,21 +1,21 @@
 [
 {
-	"uri": "/vi/",
-	"title": "AWS System Manager",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "/vi/categories/",
+	"uri": "http://localhost:1313/FCJ-Workshop/vi/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "/vi/tags/",
+	"uri": "http://localhost:1313/FCJ-Workshop/vi/tags/",
 	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://localhost:1313/FCJ-Workshop/vi/",
+	"title": "Tự Động Hoá Bảo Mật AWS",
 	"tags": [],
 	"description": "",
 	"content": ""

@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/vi/</loc>
+    <loc>http://localhost:1313/FCJ-Workshop/vi/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/"
+                href="http://localhost:1313/FCJ-Workshop/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/"
+                href="http://localhost:1313/FCJ-Workshop/vi/categories/"
                 />
   </url><url>
-    <loc>/vi/categories/</loc>
+    <loc>http://localhost:1313/FCJ-Workshop/vi/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/categories/"
+                href="http://localhost:1313/FCJ-Workshop/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/categories/"
+                href="http://localhost:1313/FCJ-Workshop/vi/tags/"
                 />
   </url><url>
-    <loc>/vi/tags/</loc>
+    <loc>http://localhost:1313/FCJ-Workshop/vi/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/tags/"
+                href="http://localhost:1313/FCJ-Workshop/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/tags/"
+                href="http://localhost:1313/FCJ-Workshop/vi/"
                 />
   </url>
 </urlset>

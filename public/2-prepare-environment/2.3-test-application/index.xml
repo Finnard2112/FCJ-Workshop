@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Testing the Underlying Application on AWS System Manager</title>
-    <link>/2-prepare-environment/2.3-test-application/</link>
-    <description>Recent content in Testing the Underlying Application on AWS System Manager</description>
+    <title>Testing the Underlying Application on AWS Security Automation</title>
+    <link>http://localhost:1313/FCJ-Workshop/2-prepare-environment/2.3-test-application/</link>
+    <description>Recent content in Testing the Underlying Application on AWS Security Automation</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="/2-prepare-environment/2.3-test-application/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/FCJ-Workshop/2-prepare-environment/2.3-test-application/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
