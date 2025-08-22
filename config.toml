@@ -1,5 +1,6 @@
 baseURL = "https://finnard2112.github.io/FCJ-Workshop/"
 canonifyURLs = true # <-- ADD THIS LINE
+relativeURLs = true
 
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
