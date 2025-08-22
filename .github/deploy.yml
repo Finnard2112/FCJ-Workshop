@@ -33,7 +33,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # This is the crucial line: it uploads the built site from the "public" directory
+          # This tells the action to upload the built site from the "public" directory
           path: ./public
 
   # Deploy job
