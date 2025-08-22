@@ -1,8 +1,6 @@
-# ADD THIS LINE - This is the crucial fix for your formatting issue.
-baseURL = "https://finnard2112.github.io/FCJ-Workshop/"
-
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
+baseURL = "https://finnard2112.github.io/FCJ-Workshop/"
 
 # For search functionality
 [outputs]
@@ -11,33 +9,56 @@ home = [ "HTML", "RSS", "JSON"]
 [params]
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "workshop"
-  # EDIT THIS LINE - This enables the 'Edit this page' link on your site.
-  editURL = "https://github.com/Finnard2112/FCJ-Workshop/edit/main/content/"
-  description = "Documentation for the AWS Serverless Security Automation Project"
-  author = "finnard2112@gmail.com"
+  # Git hub repo link
+  editURL = ""
+  description = ""
+  author = "journeyoftheaverageguy@gmail.com"
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false
+  relativeURLs = true
+  canonifyURLs = false
 
+
+
+  
 [Languages]
 [Languages.en]
-title = "AWS Security Automation"
+title = "Create a new AWS account."
 weight = 1
 languageName = "English"
 
 [[Languages.en.menu.shortcuts]]
-name = "<i class='fab fa-facebook'></i> AWS Study Group"
+name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"
+identifier = "AWS Study Group"
+url = "https://aws.amazon.com/blogs"
+weight = 20
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-facebook'></i> AWS Study Group - FB Group"
 identifier = "AWS Study Group FB"
-url = "https://www.facebook.com/groups/awsstudygroupfcj/"
+url = "https://www.facebook.com/groups/awsstudygroupfcj"
 weight = 20
 
 [Languages.vi]
-title = "Tự Động Hoá Bảo Mật AWS"
+title = "Tạo mới tài khoản AWS"
 weight = 2
 languageName = "Tiếng Việt"
 
 [[Languages.vi.menu.shortcuts]]
-name = "<i class='fab fa-facebook'></i> AWS Study Group"
-identifier = "AWS Study Group FB"
-url = "https://www.facebook.com/groups/awsstudygroupfcj/"
+name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"
+identifier = "AWS Study Group"
+url = "http://awsstudygroup.com"
 weight = 20
+
+[[Languages.vi.menu.shortcuts]]
+name = "<i class='fab fa-facebook'></i> AWS Study Group - Nhóm FB"
+identifier = "AWS Study Group FB"
+url = "https://www.facebook.com/groups/awsstudygroupfcj"
+weight = 20
+
+[Languages.en.params]
+  customLogoLink = "https://vubaolongkg.github.io/FCJ_2025_Workshop/"
+
+[Languages.vi.params]
+  customLogoLink = "https://vubaolongkg.github.io/FCJ_2025_Workshop/vi/"
