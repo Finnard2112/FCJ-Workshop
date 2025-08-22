@@ -1,3 +1,6 @@
+# ADD THIS LINE - This is the crucial fix for your formatting issue.
+baseURL = "https://finnard2112.github.io/FCJ-Workshop/"
+
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
 
@@ -8,17 +11,17 @@ home = [ "HTML", "RSS", "JSON"]
 [params]
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "workshop"
-  # Git hub repo link
-  editURL = ""
-  description = ""
-  author = "journeyoftheaverageguy@gmail.com"
+  # EDIT THIS LINE - This enables the 'Edit this page' link on your site.
+  editURL = "https://github.com/Finnard2112/FCJ-Workshop/edit/main/content/"
+  description = "Documentation for the AWS Serverless Security Automation Project"
+  author = "finnard2112@gmail.com"
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false
-  
+
 [Languages]
 [Languages.en]
-title = "AWS System Manager"
+title = "AWS Security Automation"
 weight = 1
 languageName = "English"
 
@@ -29,7 +32,7 @@ url = "https://www.facebook.com/groups/awsstudygroupfcj/"
 weight = 20
 
 [Languages.vi]
-title = "AWS System Manager"
+title = "Tự Động Hoá Bảo Mật AWS"
 weight = 2
 languageName = "Tiếng Việt"
 
@@ -38,4 +41,3 @@ name = "<i class='fab fa-facebook'></i> AWS Study Group"
 identifier = "AWS Study Group FB"
 url = "https://www.facebook.com/groups/awsstudygroupfcj/"
 weight = 20
-
