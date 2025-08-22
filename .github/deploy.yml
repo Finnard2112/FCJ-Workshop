@@ -3,31 +3,32 @@ name: Deploy Hugo site to GitHub Pages
 on:
   push:
     branches:
-      - main  # Đổi thành 'master' nếu repo bạn dùng branch đó
+      - main 
+  workflow_dispatch:
 
 permissions:
-  contents: write  # Cho phép GitHub Actions push lên gh-pages
+  contents: write 
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source code (with submodules)
+      - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: true       # Nếu theme là git submodule
-          fetch-depth: 0         # Đảm bảo clone đầy đủ lịch sử Git
+          submodules: true       
+          fetch-depth: 0         
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.124.1'  # Hoặc 'latest'
+          hugo-version: 'latest'
 
       - name: Build Hugo site
         run: hugo --minify
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy 
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
