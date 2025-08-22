@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on AWS System Manager</title>
+    <link>//localhost:1313/1-introduction/</link>
+    <description>Recent content in Introduction on AWS System Manager</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/1-introduction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project Goals</title>
+      <link>//localhost:1313/1-introduction/1.1-project-goals/</link>
+      <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/1-introduction/1.1-project-goals/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Content:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.1-project-goals/#-general-objective&#34;&gt;🎯 General Objective&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.1-project-goals/#%ef%b8%8f-specific-objectives&#34;&gt;⏱️ Specific Objectives&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.1-project-goals/#1-reduce-mean-time-to-respond-mttr&#34;&gt;1. Reduce Mean Time to Respond (MTTR)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.1-project-goals/#2-automate-forensic-evidence-collection&#34;&gt;2. Automate Forensic Evidence Collection&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.1-project-goals/#3-ensure-consistent-and-repeatable-responses&#34;&gt;3. Ensure Consistent and Repeatable Responses&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-general-objective&#34;&gt;🎯 General Objective&lt;/h2&gt;&#xA;&lt;p&gt;The primary goal of this project is to design, build, and deploy a robust, event-driven platform on AWS that automates the end-to-end security incident response lifecycle. This system will transition our security operations from a slow, manual, and reactive model to a proactive, consistent, and near-instantaneous automated model.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Purpose and Applications</title>
+      <link>//localhost:1313/1-introduction/1.2-purpose-and-applications/</link>
+      <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/1-introduction/1.2-purpose-and-applications/</guid>
+      <description>&lt;p&gt;This section details the rationale for building the security automation platform on AWS, outlines practical use cases, and explores future scalability.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Content:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.2-purpose-and-applications/#-why-use-aws-for-automated-incident-response&#34;&gt;🌐 Why use AWS for automated incident response?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.2-purpose-and-applications/#-applicable-use-cases&#34;&gt;📌 Applicable Use Cases&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.2-purpose-and-applications/#-future-scalability&#34;&gt;🚀 Future Scalability&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-why-use-aws-for-automated-incident-response&#34;&gt;🌐 Why use AWS for automated incident response?&lt;/h2&gt;&#xA;&lt;p&gt;Building a security automation platform with native AWS serverless services offers distinct advantages over traditional, on-premise, or third-party solutions.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Speed through Event-Driven Architecture:&lt;/strong&gt; The entire platform is built on an event-driven model. Services like AWS GuardDuty generate findings as events, which are immediately captured by Amazon EventBridge. This allows for a near-instantaneous response—measured in seconds—that is impossible to achieve with traditional systems that rely on polling or periodic checks.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>In Depth Design</title>
+      <link>//localhost:1313/1-introduction/1.3-in-depth-design/</link>
+      <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/1-introduction/1.3-in-depth-design/</guid>
+      <description>&lt;p&gt;This document provides a detailed breakdown of the two main components of this project: the core serverless application and the automated security pipeline that protects it.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Content:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.3-in-depth-design/#%ef%b8%8f-core-application-architecture&#34;&gt;🏗️ Core Application Architecture&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.3-in-depth-design/#component-breakdown&#34;&gt;Component Breakdown&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.3-in-depth-design/#typical-request-flow&#34;&gt;Typical Request Flow&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.3-in-depth-design/#%ef%b8%8f-automated-security-pipeline&#34;&gt;🛡️ Automated Security Pipeline&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//localhost:1313/1-introduction/1.3-in-depth-design/#the-incident-response-lifecycle&#34;&gt;The Incident Response Lifecycle&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;-core-application-architecture&#34;&gt;🏗️ Core Application Architecture&lt;/h2&gt;&#xA;&lt;p&gt;The underlying application is a modern, serverless e-commerce backend built entirely on managed AWS services. This design ensures high availability, automatic scaling, and cost-efficiency by eliminating the need for traditional server management.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

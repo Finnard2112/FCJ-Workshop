@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>In Depth Design :: AWS System Manager</title>
+
+    
+    <link href="/css/nucleus.css?1755883620" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1755883620" rel="stylesheet">
+    <link href="/css/hybrid.css?1755883620" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1755883620" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1755883620" rel="stylesheet">
+    <link href="/css/auto-complete.css?1755883620" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1755883620" rel="stylesheet">
+    <link href="/css/theme.css?1755883620" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1755883620" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1755883620" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1755883620"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/1-introduction/1.3-in-depth-design/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1755883620"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1755883620"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1755883620"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-introduction/" title="Introduction" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/1-introduction/">
+           <b> 1. </b> Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/1-introduction/1.1-project-goals/" title="Project Goals" class="dd-item ">
+        <a href="/1-introduction/1.1-project-goals/">
+         <b> 1.1 </b> Project Goals
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/1-introduction/1.2-purpose-and-applications/" title="Purpose and Applications" class="dd-item ">
+        <a href="/1-introduction/1.2-purpose-and-applications/">
+         <b> 1.2 </b> Purpose and Applications
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/1-introduction/1.3-in-depth-design/" title="In Depth Design" class="dd-item active">
+        <a href="/1-introduction/1.3-in-depth-design/">
+         <b> 1.3 </b> In Depth Design
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prepare-environment/" title="Prepare the Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prepare-environment/">
+           <b> 2. </b> Prepare the Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2-prepare-environment/2.1-deploy-cloudformation/" title="Deploy using CloudFormation" class="dd-item ">
+        <a href="/2-prepare-environment/2.1-deploy-cloudformation/">
+         <b> 2.1 </b> Deploy using CloudFormation
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2-prepare-environment/2.2-configuring-application/" title="Configuring the Serverless Aplication" class="dd-item ">
+        <a href="/2-prepare-environment/2.2-configuring-application/">
+         <b> 2.2 </b> Configuring the Serverless Aplication
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prepare-environment/2.3-test-application/" title="Testing the Underlying Application" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prepare-environment/2.3-test-application/">
+           <b> 2.3 </b> Testing the Underlying Application
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-security-automation/" title="Configuring the Security Automation" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-security-automation/">
+           <b> 3. </b> Configuring the Security Automation
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3-security-automation/3.1-configure-event-bridge/" title="Configuring EventBridge" class="dd-item ">
+        <a href="/3-security-automation/3.1-configure-event-bridge/">
+         <b> 3.1 </b> Configuring EventBridge
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3-security-automation/3.2-prepare-test-event/" title="Prepare Test Event" class="dd-item ">
+        <a href="/3-security-automation/3.2-prepare-test-event/">
+         <b> 3.2 </b> Prepare Test Event
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3-security-automation/3.3-setting-up-automation/" title="Setting up security automation" class="dd-item ">
+        <a href="/3-security-automation/3.3-setting-up-automation/">
+         <b> 3.3 </b> Setting up security automation
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3-security-automation/3.4-testing-security-pipeline/" title="Testing the security pipeline" class="dd-item ">
+        <a href="/3-security-automation/3.4-testing-security-pipeline/">
+         <b> 3.4 </b> Testing the security pipeline
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-cleanup/" title="Project Cleanup Guide" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-cleanup/">
+           <b> 4. </b> Project Cleanup Guide
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/1-introduction/1.3-in-depth-design/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>30-01-2022</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/sutrinh/"  style="color:orange">Sử Trịnh  </a> <br>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+                <a href="https://www.linkedin.com/in/hiepnguyendt"  style="color:orange">Thanh Hiệp </a>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Security Incident Response with Forensics Integration</a> > <a href='/1-introduction/'>Introduction</a> > In Depth Design
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-core-application-architecture">🏗️ Core Application Architecture</a>
+      <ul>
+        <li><a href="#component-breakdown">Component Breakdown</a></li>
+        <li><a href="#typical-request-flow-creating-a-product">Typical Request Flow (Creating a Product)</a></li>
+      </ul>
+    </li>
+    <li><a href="#-automated-security-pipeline">🛡️ Automated Security Pipeline</a>
+      <ul>
+        <li><a href="#the-incident-response-lifecycle">The Incident Response Lifecycle</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              In Depth Design
+            </h1>
+          
+
+        
+
+
+<p>This document provides a detailed breakdown of the two main components of this project: the core serverless application and the automated security pipeline that protects it.</p>
+<p><strong>Content:</strong></p>
+<ul>
+<li><a href="/1-introduction/1.3-in-depth-design/#%ef%b8%8f-core-application-architecture">🏗️ Core Application Architecture</a>
+<ul>
+<li><a href="/1-introduction/1.3-in-depth-design/#component-breakdown">Component Breakdown</a></li>
+<li><a href="/1-introduction/1.3-in-depth-design/#typical-request-flow">Typical Request Flow</a></li>
+</ul>
+</li>
+<li><a href="/1-introduction/1.3-in-depth-design/#%ef%b8%8f-automated-security-pipeline">🛡️ Automated Security Pipeline</a>
+<ul>
+<li><a href="/1-introduction/1.3-in-depth-design/#the-incident-response-lifecycle">The Incident Response Lifecycle</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="-core-application-architecture">🏗️ Core Application Architecture</h2>
+<p>The underlying application is a modern, serverless e-commerce backend built entirely on managed AWS services. This design ensures high availability, automatic scaling, and cost-efficiency by eliminating the need for traditional server management.</p>
+<h3 id="component-breakdown">Component Breakdown</h3>
+<ul>
+<li><strong>Amazon API Gateway:</strong> This is the &ldquo;front door&rdquo; for all incoming client requests. It manages API endpoints (e.g., <code>/products</code>), handles request routing, and is responsible for initial request validation and authorization.</li>
+<li><strong>AWS Cognito:</strong> A secure, managed user identity service. It integrates directly with API Gateway to handle all user authentication (sign-up and sign-in) and provides authorization by issuing JWT tokens that must be included in every API request.</li>
+<li><strong>AWS Lambda (Application Layer):</strong> These are the microservices that contain the business logic. Each function is responsible for a specific task:
+<ul>
+<li><code>ProductService</code>: Handles creating new products.</li>
+<li><code>ScanService</code>: Handles retrieving a list of all products.</li>
+<li><code>RemoveProduct</code>: Handles deleting a specific product.</li>
+</ul>
+</li>
+<li><strong>Amazon DynamoDB:</strong> A fully managed NoSQL database that serves as the persistent data store for the application. It holds all product information and is accessed directly by the Lambda functions.</li>
+</ul>
+<h3 id="typical-request-flow-creating-a-product">Typical Request Flow (Creating a Product)</h3>
+<ol>
+<li>A registered user signs in via the client application, receiving a JWT token from <strong>Cognito</strong>.</li>
+<li>The client sends a <code>POST</code> request to the <code>/products</code> endpoint on <strong>API Gateway</strong>, including the JWT token in the <code>Authorization</code> header.</li>
+<li><strong>API Gateway</strong> uses its Cognito authorizer to validate the token.</li>
+<li>If the token is valid, API Gateway forwards the request to the <strong><code>ProductService</code></strong> Lambda function.</li>
+<li>The <code>ProductService</code> Lambda executes its logic, validates the input, and writes the new product data to the <strong>DynamoDB</strong> table.</li>
+<li>A success response is returned through the same path to the client.</li>
+</ol>
+<hr>
+<h2 id="-automated-security-pipeline">🛡️ Automated Security Pipeline</h2>
+<p>The security pipeline is an event-driven workflow designed to automatically detect, contain, investigate, and report on security threats within the AWS account, requiring zero human intervention for the initial response.</p>
+<h3 id="the-incident-response-lifecycle">The Incident Response Lifecycle</h3>
+<p>The pipeline operates as a five-stage automated runbook, orchestrated by <strong>AWS Step Functions</strong>.</p>
+<h4 id="1-detection"><strong>1. Detection</strong></h4>
+<ul>
+<li><strong>Service:</strong> <strong>AWS GuardDuty</strong></li>
+<li><strong>Role:</strong> GuardDuty is the threat detection engine. It continuously monitors AWS log sources (like CloudTrail and VPC Flow Logs) for malicious or unauthorized behavior. When it identifies a potential threat, such as a Lambda function communicating with a malicious IP, it generates a <strong>finding</strong>.</li>
+</ul>
+<h4 id="2-trigger"><strong>2. Trigger</strong></h4>
+<ul>
+<li><strong>Service:</strong> <strong>Amazon EventBridge</strong></li>
+<li><strong>Role:</strong> EventBridge acts as the central nervous system. It has a rule configured to listen for specific findings from GuardDuty. When a finding matches the rule&rsquo;s pattern, EventBridge immediately triggers the Step Functions state machine to begin the response.</li>
+</ul>
+<h4 id="3-orchestration--response"><strong>3. Orchestration &amp; Response</strong></h4>
+<ul>
+<li><strong>Service:</strong> <strong>AWS Step Functions &amp; AWS Lambda</strong></li>
+<li><strong>Role:</strong> The Step Functions state machine executes the pre-defined, multi-step incident response plan. Each step is a dedicated Lambda function.
+<ol>
+<li><strong>Containment (<code>ContainmentLambda</code>):</strong> The first action is to immediately stop the potential threat. This function gets the ARN of the compromised Lambda from the GuardDuty finding and attaches a restrictive IAM &ldquo;deny-all&rdquo; policy to its role, revoking its permissions to do anything else. <strong>MTTR: &lt; 60 seconds.</strong></li>
+<li><strong>Evidence Collection (<code>EvidenceCollectionLambda</code>):</strong> This function acts as a digital forensics expert. It collects a snapshot of the compromised function&rsquo;s state, including its source code, configuration, Lambda Layers, and a detailed breakdown of its IAM role and policies. All evidence is saved to a secure S3 bucket.</li>
+<li><strong>Timeline Analysis (<code>TimelineAnalysisLambda</code>):</strong> This function automates the work of an investigator. It uses <strong>Amazon Athena</strong> to automatically query <strong>AWS CloudTrail</strong> logs for all API activity performed by the compromised function&rsquo;s role around the time of the incident, creating a clear timeline of events.</li>
+<li><strong>Reporting (<code>GenerateReportLambda</code>):</strong> This function acts as a security analyst. It reads all the collected evidence (configuration, IAM policies, logs, and timeline) from S3 and compiles a single, human-readable report.</li>
+<li><strong>Notification (<code>Amazon SNS</code>):</strong> The final state of the Step Function takes the formatted report and publishes it to an <strong>Amazon SNS</strong> topic, which then sends it to subscribers (e.g., via email) to alert the human security team of the threat and the automated actions that were taken.</li>
+</ol>
+</li>
+</ul>
+<p>By the time a human analyst sees the notification, the threat has already been contained, and a complete folder of evidence and a summary report are ready for their review.</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/1-introduction/1.2-purpose-and-applications/" title="Purpose and Applications"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/2-prepare-environment/" title="Prepare the Environment" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1755883620"></script>
+    <script src="/js/perfect-scrollbar.min.js?1755883620"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1755883620"></script>
+    <script src="/js/jquery.sticky.js?1755883620"></script>
+    <script src="/js/featherlight.min.js?1755883620"></script>
+    <script src="/js/highlight.pack.js?1755883620"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1755883620"></script>
+    <script src="/js/learn.js?1755883620"></script>
+    <script src="/js/hugo-learn.js?1755883620"></script>
+
+    <link href="/mermaid/mermaid.css?1755883620" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1755883620"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
+
