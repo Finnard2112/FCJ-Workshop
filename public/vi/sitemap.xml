@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://finnard2112.github.io/FCJ-Workshop/vi/categories/</loc>
+    <loc>//localhost:1313/vi/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://finnard2112.github.io/FCJ-Workshop/categories/"
+                href="//localhost:1313/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://finnard2112.github.io/FCJ-Workshop/vi/categories/"
+                href="//localhost:1313/vi/"
                 />
   </url><url>
-    <loc>https://finnard2112.github.io/FCJ-Workshop/vi/tags/</loc>
+    <loc>//localhost:1313/vi/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://finnard2112.github.io/FCJ-Workshop/tags/"
+                href="//localhost:1313/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://finnard2112.github.io/FCJ-Workshop/vi/tags/"
+                href="//localhost:1313/vi/categories/"
                 />
   </url><url>
-    <loc>https://finnard2112.github.io/FCJ-Workshop/vi/</loc>
+    <loc>//localhost:1313/vi/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://finnard2112.github.io/FCJ-Workshop/"
+                href="//localhost:1313/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://finnard2112.github.io/FCJ-Workshop/vi/"
+                href="//localhost:1313/vi/tags/"
                 />
   </url>
 </urlset>
